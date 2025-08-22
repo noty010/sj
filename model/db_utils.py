@@ -21,11 +21,22 @@ def setup(cnx): # Inicializa o banco de dados para rodar a API
     cursor.close()
 
 def getobjects(cnx, table, cod=None): # Busca objetos de uma tabela
+    def assignobjects(rows, table):
+        results = []
+        cursor.execute("SHOW COLUMNS FROM %s" % table)
+        columns = [row[0] for row in cursor.fetchall()]
+        for row in rows:
+            results.append({
+                for i in range(len(columns)):
+                    columns[i] = row[i]
+            })
+        cursor.close()
+
     cursor = cnx.cursor()
     if cod is None:
         cursor.execute("SELECT * FROM" % table)
-        objects = cursor.fetchall()
+        rows = cursor.fetchall()
     else:
         cursor.execute("SELECT * FROM %s WHERE cod = %i" % (table, cod))
-        objects = cursor.fetchall()
-    cursor.close()
+        rows = cursor.fetchall()
+    assignobjects(rows, table)
