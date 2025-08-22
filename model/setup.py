@@ -23,7 +23,7 @@ def parse(cmdlist, file):
 
 def setup():
     cursor = cnx.cursro()
-    for command in parse(setup, "database/setup.sql"):
+    for command in parse(setup, "database/create.sql"):
         cursor.execute(command)
         cursor.commit()
     for command in parse(feed, "database/feed.sql"):
