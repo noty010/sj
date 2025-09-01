@@ -23,22 +23,28 @@ def feed(cnx):
         cursor.commit()
     cursor.close()
 
+def findcode(cnx, table, handle):
+    cursor = cnx.cursor()
+    cursor.execute(f'SELECT code FROM {table} WHERE handle = {handle}')
+    code = cursor.fetchall()
+    return code
+
 def getall(cnx, table):
     cursor = cnx.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM %s" % table)
+    cursor.execute(f'SELECT * FROM {table}')
     results = cursor.fetchall()
     cursor.close()
     return results
 
 def getbyid(cnx, table, code):
     cursor = cnx.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM %s WHERE cod = %i" % (table, code))
+    cursor.execute(f'SELECT * FROM {table} WHERE code = {code}')
     results = cursor.fetchall()
     cursor.close()
     return results
 
 def delete(cnx, table, code):
     cursor = cnx.cursor()
-    cursor.execute("DELETE FROM %s WHERE cod = %i" % (table, code))
+    cursor.execute(f'DELETE FROM {table} WHERE code = {code}')
     cursor.commit()
     cursor.close()
