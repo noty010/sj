@@ -5,3 +5,4 @@ def parse(cmdlist, file):
     for cmd in rawcmd:
         cleancmd = cmd.strip()
         if cleancmd: cmdlist.append(cleancmd)
+        return cmdlist

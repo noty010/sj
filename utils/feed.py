@@ -1,4 +1,4 @@
-from parse import parse
+import parse
 
 def feed(cnx):
     feed = []
