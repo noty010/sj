@@ -1,6 +1,6 @@
-from sqlalchemy import create_engine, Column, Integer, String, Text, Date, Time, Boolean, DECIMAL, ForeignKey, CheckConstraint, PrimaryKeyConstraint, UniqueConstraint, YEAR
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine, Column, Integer, String, Text, Date, Time, Boolean, DECIMAL, ForeignKey, CheckConstraint
 from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
@@ -166,5 +166,14 @@ class Equipe(Base):
     funcao = Column(String(255), nullable=False)
     turma = Column(String(255), nullable=False)
     email = Column(String(255), nullable=False)
-    ano = Column(YEAR, nullable=False)
+    ano = Column(String(50), nullable=False)
     urlimagem = Column(String(255))
+
+url = "mysql+pymysql://root:aluno@localhost:3306/tccsj"
+engine = create_engine (
+    url,
+    echo=True,
+    pool_pre_ping=True,
+    pool_recycle=3600
+)
+Base.metadata.create_all(bind=engine)
