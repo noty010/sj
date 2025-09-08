@@ -20,8 +20,5 @@ class Locais(BaseModel):
 
     tags = relationship('Tag', secondary='locaistags', back_populates='locais')
     __table_args__ = (
-        CheckConstraint(
-            'fim > inicio',
-            name = 'checkdata'
-        )
+        CheckConstraint('fim > inicio', name = 'checkdata'),
     )

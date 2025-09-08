@@ -7,7 +7,7 @@ class Evento(BaseModel):
     code = Column(Integer, primary_key=True, autoincrement=True)
     handle = Column(String(255), unique=True, nullable=False)
     nome = Column(String(255), nullable=False)
-    descricao = Column(Text, unique=True, nullable=False)
+    descricao = Column(Text, nullable=False)
     inicio = Column(Date, nullable=False)
     fim = Column(Date)
     horario = Column(Time, nullable=False)
