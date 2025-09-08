@@ -13,6 +13,6 @@ class Atracao(BaseModel):
     descricao = Column(Text, nullable=False)
     principal = Column(Boolean, nullable=False)
     urlimagem = Column(String(255), nullable=False)
-
-    exibicao = relationship('Exibicao', back_populates='atracoes')
+    
+    exibicoes = relationship('Exibicao', secondary='atracaoexibicao', back_populates='atracoes')
     tags = relationship('Tag', secondary='atracaotags', back_populates='atracoes')

@@ -1,4 +1,5 @@
 from .base import Base, BaseModel
+from .atracaoexibicao import AtracaoExibicao
 from .atracao import Atracao
 from .atracaotags import AtracaoTags
 from .equipe import Equipe
@@ -16,5 +17,5 @@ def create_tables():
     Base.metadata.create_all(bind=engine)
 
 __all__ = [
-    'Base', 'BaseModel', 'Atracao', 'AtracaoTags', 'Equipe', 'Evento', 'Exibicao', 'Locais', 'LocaisTags', 'Pessoa', 'Polo', 'Tag', 'Usuario'
+    'Base', 'BaseModel', 'AtracaoExibicao', 'Atracao', 'AtracaoTags', 'Equipe', 'Evento', 'Exibicao', 'Locais', 'LocaisTags', 'Pessoa', 'Polo', 'Tag', 'Usuario'
 ]
