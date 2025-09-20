@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Text
 from .base import BaseModel
 
 class Equipe(BaseModel):
@@ -10,4 +10,4 @@ class Equipe(BaseModel):
     turma = Column(String(255), nullable=False)
     email = Column(String(255), nullable=False)
     ano = Column(String(50), nullable=False)
-    urlimagem = Column(String(255))
+    urlimagem = Column(Text, nullable=False)

@@ -13,7 +13,7 @@ class Pessoa(BaseModel):
     morte = Column(Integer)
     ishomenageado = Column(Boolean, nullable=False, default=False)
     anohomenagem = Column(Integer)
-    urlimagem = Column(String(255), nullable=False)
+    urlimagem = Column(Text, nullable=False)
     
     __table_args__ = (
         CheckConstraint('morte > nascido', name='chk_data'),

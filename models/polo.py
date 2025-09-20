@@ -15,7 +15,7 @@ class Polo(BaseModel):
     latitude = Column(DECIMAL(8, 5), nullable=False)
     longitude = Column(DECIMAL(8, 5), nullable=False)
     ismultilocal = Column(Boolean, nullable=False, default=False)
-    urlimagem = Column(String(255), nullable=False)
+    urlimagem = Column(Text, nullable=False)
 
     exibicoes = relationship('exibicao', back_populates='polo')
 

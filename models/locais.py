@@ -15,8 +15,8 @@ class Locais(BaseModel):
     endereco = Column(String(500), nullable=False)
     latitude = Column(DECIMAL(8, 5), nullable=False)
     longitude = Column(DECIMAL(8, 5), nullable=False)
-    urlimage = Column(String(255), nullable=False)
-    urlicone = Column(String(255), nullable=False)
+    urlimage = Column(Text, nullable=False)
+    urlicone = Column(Text, nullable=False)
 
     tags = relationship('Tag', secondary='locaistags', back_populates='locais')
     __table_args__ = (
